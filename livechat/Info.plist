@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSContactsUsageDescription</key>
+	<string>livechat required access contacts</string>
+	<key>NSLocationUsageDescription</key>
+	<string>livechat required access location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>livechat required access photo library</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>livechat required access media library </string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>livechat required access microphone</string>
+	<key>NSCameraUsageDescription</key>
+	<string>livechat required access camera</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -50,8 +62,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

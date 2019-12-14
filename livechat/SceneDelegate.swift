@@ -7,17 +7,36 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
+    var authListner:AuthStateDidChangeListenerHandle?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        authListner = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            
+            Auth.auth().removeStateDidChangeListener(self.authListner!)
+            
+            
+            if user != nil {
+                
+                if UserDefaults.standard.object(forKey: kCURRENTUSER) != nil{
+                    
+                    self.presentViewController()
+                    
+                }
+                
+            }
+            
+        })
+        
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,6 +67,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func presentViewController(){
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID: User.getCurrentUserId()])
+        
+        let VC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        
+        self.window?.rootViewController = VC
+    }
 }
 

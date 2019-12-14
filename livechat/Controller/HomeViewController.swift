@@ -1,20 +1,23 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  livechat
 //
-//  Created by Mohamed on 11/13/19.
+//  Created by Mohamed on 11/14/19.
 //  Copyright © 2019 Mohamed74. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+
     }
+    
+   
 
 
 }
-
