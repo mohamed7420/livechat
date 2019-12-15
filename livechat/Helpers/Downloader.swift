@@ -75,6 +75,52 @@ func downloadImage(imageUrl: String , completion: @escaping (_ image: UIImage?)-
     
     let imageFileName = (imageUrl.components(separatedBy: "K").last!).components(separatedBy: "?").first!
     
+    if fileExisitsAtPath(path: imageFileName){
+        
+        if let contentsOFFile = UIImage(contentsOfFile: fileInDocumentDirectory(fileName: imageFileName)){
+            
+            completion(contentsOFFile)
+        }else{
+            
+            print("Coudn't generate image")
+            completion(nil)
+        }
+        
+    }else{
+        
+        let downloadQueue = DispatchQueue.init(label: "imageDownloadQueue")
+        
+        downloadQueue.async {
+            
+            let data = NSData(contentsOf: imageURL! as URL)
+            
+            if data != nil{
+                
+                var docURL = getDocumentURL()
+                
+                docURL = docURL.appendingPathComponent(imageFileName , isDirectory: false)
+                
+                data!.write(to: docURL, atomically: true )
+                
+                let imageToReturn = UIImage(data: data! as Data)
+                
+                DispatchQueue.main.async {
+                    completion(imageToReturn!)
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    
+                    print("no image in database")
+                    completion(nil)
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }
 
 
