@@ -142,7 +142,10 @@ class DisplayChatViewController: JSQMessagesViewController, UIImagePickerControl
         
         let takeVideoFromLibrary = UIAlertAction(title: "Video Library", style: .default) { (action) in
             
-            print("takeVideoFromLibrary")
+
+            camera.PresentVideoLibrary(target: self , canEdit: false)
+        
+
         }
         
         let shareLocation = UIAlertAction(title: "Share Location", style: .default) { (action) in
@@ -233,7 +236,7 @@ class DisplayChatViewController: JSQMessagesViewController, UIImagePickerControl
                 
                 if imageLink != nil{
                     
-                    let text = kPICTURE
+                    let text = "[\(kPICTURE)]"
                     
                     outgoingMessage = OutgoingMessages(message: text, pictureLink: imageLink!, senderId: currentUser!.objectId, senderName: currentUser!.firstname, date: date, status: kDELIVERED, type: kPICTURE)
                     
@@ -248,6 +251,34 @@ class DisplayChatViewController: JSQMessagesViewController, UIImagePickerControl
             return
         }
         
+        // send Video
+        
+        if let video = video{
+            
+            let videoDate = NSData(contentsOfFile: video.path!)
+            
+            let dataThumbnail = videoThumnail(video: video).jpegData(compressionQuality: 0.3)
+            uploadVideo(video: videoDate!, chatRoomId: roomId, view: self.navigationController!.view) { (videoLink) in
+                
+                if videoLink != nil{
+                    
+                    let text = "[\(kVIDEO)]"
+                    
+                outgoingMessage = OutgoingMessages(message: text, videoLink: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser!.objectId, senderName: currentUser!.fullname , date: date, status: kDELIVERED, type: kVIDEO)
+                
+                JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                self.finishSendingMessage()
+                
+                outgoingMessage?.sendMessageToFirestore(chatRoomId: self.roomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberId, memberToPush: self.memberToPush)
+                    
+                    
+                }
+                
+            }
+            
+            return
+        }
+        
         JSQSystemSoundPlayer.jsq_playMessageSentAlert()
         self.finishSendingMessage()
         
@@ -255,6 +286,8 @@ class DisplayChatViewController: JSQMessagesViewController, UIImagePickerControl
         
         
     }
+    
+    
     
     
     

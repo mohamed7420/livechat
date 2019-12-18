@@ -17,6 +17,7 @@
 		BA0CD54023A65F4600B96626 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0CD53F23A65F4600B96626 /* PhotoMediaItem.swift */; };
 		BA0D5F742381ABDB002C7003 /* RecentChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5F732381ABDB002C7003 /* RecentChat.swift */; };
 		BA0E91692383CC9900840556 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E91682383CC9900840556 /* RecentTableViewCell.swift */; };
+		BA13679823AA69AC00A568FF /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA13679723AA69AC00A568FF /* VideoMessage.swift */; };
 		BA1A4A47237F50C700D9A766 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A4A46237F50C700D9A766 /* ChatsViewController.swift */; };
 		BA1F637F238AE47F00D6247B /* IncoumingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1F637E238AE47F00D6247B /* IncoumingMessage.swift */; };
 		BA20F393237EA34500069745 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA20F392237EA34500069745 /* UserTableViewController.swift */; };
@@ -50,6 +51,7 @@
 		BA0CD53F23A65F4600B96626 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		BA0D5F732381ABDB002C7003 /* RecentChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChat.swift; sourceTree = "<group>"; };
 		BA0E91682383CC9900840556 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
+		BA13679723AA69AC00A568FF /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		BA1A4A46237F50C700D9A766 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		BA1F637E238AE47F00D6247B /* IncoumingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncoumingMessage.swift; sourceTree = "<group>"; };
 		BA20F392237EA34500069745 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				BA0022DF238A833C00CCA5BD /* OutgoingMessages.swift */,
 				BA1F637E238AE47F00D6247B /* IncoumingMessage.swift */,
 				BA0CD53F23A65F4600B96626 /* PhotoMediaItem.swift */,
+				BA13679723AA69AC00A568FF /* VideoMessage.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				BA1A4A47237F50C700D9A766 /* ChatsViewController.swift in Sources */,
 				BA90AECF237E0F830055FCAD /* CustomeUserCell.swift in Sources */,
 				BA74238E238801C200AEA82C /* DisplayChatViewController.swift in Sources */,
+				BA13679823AA69AC00A568FF /* VideoMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
